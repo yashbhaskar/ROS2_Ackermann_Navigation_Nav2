@@ -1,0 +1,49 @@
+docking_server:
+  ros__parameters:
+    controller_frequency: 50.0
+    initial_perception_timeout: 5.0
+    wait_charge_timeout: 5.0
+    dock_approach_timeout: 30.0
+    undock_linear_tolerance: 0.05
+    undock_angular_tolerance: 0.1
+    max_retries: 3
+    base_frame: "base_link"
+    fixed_frame: "odom"  # decouple from localization
+    dock_backwards: true
+    dock_prestaging_tolerance: 0.5
+
+    # Use a simple dock plugin
+    dock_plugins: ['simple_dock']
+    simple_dock:
+      plugin: 'opennav_docking::SimpleChargingDock'
+      docking_threshold: 0.05
+      staging_x_offset: -0.7
+      use_external_detection_pose: false
+      use_battery_status: false
+      use_stall_detection: false
+
+      # Optional offsets (not used since external detection is false)
+      external_detection_timeout: 1.0
+      external_detection_translation_x: 0.0
+      external_detection_translation_y: 0.0
+      external_detection_rotation_roll: 0.0
+      external_detection_rotation_pitch: 0.0
+      external_detection_rotation_yaw: 0.0
+      filter_coef: 0.1
+
+    # Dock database inline (can also use separate YAML)
+    docks: ['dock1']
+    dock1:
+      type: 'simple_dock'
+      frame: 'map'
+      pose: [2.3374360935719936, -4.200471857074004, 0.0]
+      # pose: [2.3374360935719936, -4.200471857074004, 0.0, 0.00011884089602321168, 2.9563050995638272e-05, 0.9979287055510315, 0.06432949277050089]
+    command_topic: /dock_command
+
+    controller:
+      k_phi: 3.0
+      k_delta: 2.0
+      v_linear_min: 0.15
+      v_linear_max: 0.15
+
+
