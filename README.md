@@ -22,6 +22,7 @@ During a turn, the inner wheel needs to turn at a sharper angle than the outer w
 - Robotics competitions & simulation projects (Gazebo/RViz)
 
 Ackermann drive is ideal for projects needing dynamic and stable navigation using Nav2, allowing smooth motion planning and obstacle avoidance similar to real vehicles.
+
 <img width="375" height="263" alt="Ackermann-steering-principle" src="https://github.com/user-attachments/assets/d48cb663-87de-40b5-b965-d4846efc1f5f" />
 
 ---
